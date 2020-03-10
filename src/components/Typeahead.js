@@ -24,7 +24,14 @@ const Typeahead = ({ suggestions, handleSelect, categories }) => {
     const [book, setBook] = useState("");
     const [selected, setSelected] = useState(0);
     const [bookTitleList, setBookTitleList] = useState([]);
-
+    React.useEffect(() => {
+        const filterArr = suggestions.filter(booky => {
+            return booky.title.toLowerCase().includes(book.toLowerCase());
+        });
+        console.log(filterArr);
+        console.log(book);
+        setBookTitleList(filterArr);
+    }, [book]);
     return (
         <div>
             <StyledInput
@@ -33,14 +40,6 @@ const Typeahead = ({ suggestions, handleSelect, categories }) => {
                 placeholder="Search for a book"
                 onChange={event => {
                     setBook(event.target.value);
-                    const filterArr = suggestions.filter(booky => {
-                        return booky.title
-                            .toLowerCase()
-                            .includes(book.toLowerCase());
-                    });
-                    console.log(filterArr);
-                    console.log(book);
-                    setBookTitleList(filterArr);
                 }}
                 onKeyDown={event => {
                     switch (event.key) {

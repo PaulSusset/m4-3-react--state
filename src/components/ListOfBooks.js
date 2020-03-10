@@ -48,7 +48,7 @@ const ListOfBooks = ({
             <StyledLi
                 onMouseEnter={event => {
                     console.log(event);
-                    // console.log(mapArr.indexOf(event.target));
+                    setSelected(index);
                 }}
                 key={book.id}
                 onClick={() => handleSelect(book.title)}
@@ -74,7 +74,9 @@ const ListOfBooks = ({
             </StyledLi>
         );
     });
-    return input.length > 1 && filter.length && <StyledUl>{mapArr}</StyledUl>;
+    return input.length > 1 && filter.length ? (
+        <StyledUl>{mapArr}</StyledUl>
+    ) : null;
 };
 
 export default ListOfBooks;
