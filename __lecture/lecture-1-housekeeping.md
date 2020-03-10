@@ -8,28 +8,25 @@ Is there a better way to write this?
 
 ```js live=true
 const Button = styled.button`
-  padding: 10px;
-  margin: 10px;
-  border-radius: 4px;
-  font-size: 18px;
-  font-weight: bold;
-  background: #EEE;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #eee;
 `;
 
-const BlueButton = styled.button`
-  padding: 10px;
-  margin: 10px;
-  border-radius: 4px;
-  font-size: 18px;
-  font-weight: bold;
-  background: #2B00D7;
-  color: #FFF;
-`
+const BlueButton = styled(Button)`
+    background: #2b00d7;
+    color: #fff;
+`;
 
-render(<>
-  <Button>Button 1</Button>
-  <BlueButton>Button 2</BlueButton>
-</>)
+render(
+    <>
+        <Button>Button 1</Button>
+        <BlueButton>Button 2</BlueButton>
+    </>
+);
 ```
 
 ---
@@ -40,12 +37,12 @@ What does the `&` signify, in this snippet?
 
 ```jsx
 const ListItem = styled.li`
-  border-bottom: 1px solid;
+    border-bottom: 1px solid;
 
-  &:last-of-type {
-    border-bottom: none;
-  }
-`
+    &:last-of-type {
+        border-bottom: none;
+    }
+`;
 ```
 
 ---
